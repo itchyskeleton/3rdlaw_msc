@@ -80,12 +80,14 @@ R scripts to generate the speciation, extinction and diversification rates, spec
 
 <h4>eta</h4>
 Scripts used to generate `eta` analyses for all family-continent pairs, using the one threshold or two thresholds methods and different `cuts` (see dissertation text for more information).
+
 - 00_eta_function.R: function `eta`, used to divide the family-continent pairs' diversification dynamics into time windows.
 - 01_eta_analysis_CUT_2t.R: `eta` analyses performed using the two thresholds method and different cuts, informed in the file names.
 - 02_eta_analysis_CUT_1t.R: `eta` analyses performed using the one threshold method and different cuts, informed in the file names.
 
 <h4>correlations</h4>
 Scripts for the Kendall correlations between speciation and extinction rates.
+
 - 01_correlations_CUT_2t.R: correlation analyses ran with data divided in time windows using the `eta` function with the two thresholds method and different cuts, informed in the file names.
 - 02_correlations_CUT_1t.R: correlation analyses ran with data divided in time windows using the `eta` function with the one threshold method and different cuts, informed in the file names.
 - 03_correlations_nowindows.R: correlations without dividing the diversification dynamics in time windows.
@@ -93,7 +95,7 @@ Scripts for the Kendall correlations between speciation and extinction rates.
 <h4>images_scripts</h4>
 Scripts to generate images contained in the dissertation text.
 
-- gillinsky-img.R R script to generate Fig. 1 of the manuscript.
+- **gillinsky-img.R:** R script to generate Fig. 1 of the manuscript.
 - eta_explanation.R: R script to generate Fig. 2 of the manuscript.
 - example_diversification.R artificial diversification dynamic, created by modifying the real Eurasian Amphicyonidae one, to better exemplify the effect that the parameters of the function `eta` can have in the analysis.
 - img-zliobate.R R script to generate Fig. 4 of the manuscript.
