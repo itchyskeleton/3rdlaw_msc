@@ -69,7 +69,7 @@ Data obtained through PyRate analyses.
 R scripts to generate the speciation, extinction and diversification rates, speciation and extinction shifts, and longevity through time plots, created using PyRate function `-plotRJ` and the MCMC logs.
 
 <h4>processed</h4>
-- 00_eta_prerequisites.RData: R objects needed to run the function `eta`.
+- ==00_eta_prerequisites.RData:== R objects needed to run the function `eta`.
 - corrs_prereqs_CUT_1t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the one threshold method. The different cuts are described in the file names.
 - corrs_prereqs_CUT_2t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the two thresholds method. The different cuts are described in the file names.
 - gillinsky_data.csv: data obtained from Gillinsky (1994) and used to create Fig. 1 from the dissertation text.
@@ -125,8 +125,8 @@ PDF files showing the diversification dynamics divided in time windows. The file
 <h5>tables</h5>
 Contains two types of files:
 
-- Tables containing mean speciation and extinction rates, locality, and status for each family-continent pair for all time windows (`rise` for expansion, `eq` for equilibrium, and `dec` for decline). Those files are named as `THRESHOLD_mean_WINDOW_CUT.txt`.
-- Tables containing threshold rates estimated through function `eta` for each family-continent pair. Those files are named as `THRESHOLD_threshold_rates_CUT.txt`.
+-Tables containing mean speciation and extinction rates, locality, and status for each family-continent pair for all time windows (`rise` for expansion, `eq` for equilibrium, and `dec` for decline). Those files are named as `THRESHOLD_mean_WINDOW_CUT.txt`.
+-Tables containing threshold rates estimated through function `eta` for each family-continent pair. Those files are named as `THRESHOLD_threshold_rates_CUT.txt`.
 
 
 <h4>correlations</h4>
@@ -182,9 +182,9 @@ loaded via a namespace (and not attached):
 <h2>Bibliography mentioned in this README</h2>
 
 <ol>
-1. Gillinsky, Norman L. 1994. “Volatility and the Phanerozoic Decline of Background Extinction Intensity.” Paleobiology, 445–58. https://doi.org/10.1017/S0094837300012926.
-2. “New and Old Worlds - Database of Fossil Mammals.” 2022. https://nowdatabase.org/.
-3. “Palaeobiology Database.” 2022. https://paleobiodb.org/.
+<li>Gillinsky, Norman L. 1994. “Volatility and the Phanerozoic Decline of Background Extinction Intensity.” Paleobiology, 445–58. https://doi.org/10.1017/S0094837300012926.</li>
+<li>“New and Old Worlds - Database of Fossil Mammals.” 2022. https://nowdatabase.org/.</li>
+<li>“Palaeobiology Database.” 2022. https://paleobiodb.org/.</li>
 </ol>
 
 <h2>Acknowledgements</h2>
