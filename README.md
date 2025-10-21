@@ -69,7 +69,8 @@ Data obtained through PyRate analyses.
 R scripts to generate the speciation, extinction and diversification rates, speciation and extinction shifts, and longevity through time plots, created using PyRate function `-plotRJ` and the MCMC logs.
 
 <h4>processed</h4>
-- ==00_eta_prerequisites.RData:== R objects needed to run the function `eta`.
+
+- **00_eta_prerequisites.RData:** R objects needed to run the function `eta`.
 - corrs_prereqs_CUT_1t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the one threshold method. The different cuts are described in the file names.
 - corrs_prereqs_CUT_2t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the two thresholds method. The different cuts are described in the file names.
 - gillinsky_data.csv: data obtained from Gillinsky (1994) and used to create Fig. 1 from the dissertation text.
