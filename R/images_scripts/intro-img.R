@@ -6,6 +6,8 @@ library(here)
 
 # Let's load the pyrate output files.
 
+load(here("data","processed","img-intro.RData"))
+
 ## Amph_EA
 
 amph_eu <- read.table(file=here(
@@ -76,6 +78,106 @@ herp_eu <- read.table(file=here(
 
 ##################################
 
+## Hyaenidae_EA
+
+hyae_eu <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Hyaenidae_EU_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Mephitidae_NAm
+
+meph_na <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Mephitidae_NAm_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Mustelidae_EA
+
+must_eu <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Mustelidae_EU_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Mustelidae_NAm
+
+must_na <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Mustelidae_NAm_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Nimravidae_EA
+
+nimr_eu <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Nimravidae_EU_combined_50_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Nimravidae_NAm
+
+nimr_na <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Nimravidae_NAm_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Percrocutidae_EA
+
+perc_eu <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Percrocutidae_EU_combined_50_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Procyonidae_NAm
+
+proc_na <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Procyonidae_NAm_combined_50_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Ursidae_EA
+
+ursi_eu <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Ursidae_EU_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
+## Ursidae_NAm
+
+ursi_na <- read.table(file=here(
+  "data",
+  "pyrate", "output", "mcmc_logs",
+  "Ursidae_NAm_combined_50mcmc_mcmc.log"),
+  sep="\t", header=T)
+
+##################################
+
 ## Viverridade_EA
 
 vive_ea <- read.table(
@@ -86,12 +188,23 @@ vive_ea <- read.table(
 
 ##################################
 
+# Let's save everything to make it easier.
+
+save(amph_eu, amph_na, cani_eu, cani_na, feli_ea, feli_na, herp_eu, hyae_eu,
+     meph_na, must_eu, must_na, nimr_eu, nimr_na, perc_eu, proc_na, ursi_eu,
+     ursi_na, vive_ea, file=here("data","processed","img-intro.RData"))
+
+##################################
+
+# Now let's load data from other works.
+
+##################################
+
 ## 1. Sutherland - Actinopterygii
 
 sutherland2025 <- read.table(file=here(
   "data",
   "pyrate",
-  "output",
   "other_work",
   "sutherland_glo_all_sp_10_mcmc.log"), 
   sep="\t", header=T)
@@ -124,7 +237,6 @@ sutherland_q <- c(
 jouault <- read.table(file=here(
   "data",
   "pyrate",
-  "output",
   "other_work",
   "jouault_Genus_6_RJMCMC-1_Grj_mcmc.log"), 
   sep="\t", header=T)
@@ -211,60 +323,164 @@ jouault_q <- jouault_q[-48]
 
 ##############################
 
-## 3. Guo - Echinodermata
+## 3. Bravo - Phorusrhacidae
 
-guo_echi <- read.table(file=here(
-  "data",
-  "pyrate",
-  "output",
-  "other_work",
-  "guo_Echinodermata_mcmcdiv.log"), 
-  sep="\t", header=T)
+bravo <- data.frame(
+  avg=c(0.7432,1.2378,1.7743),
+  earlymio=c(0.8557,1.8063,2.9346),
+  latemio=c(0.3270,1.7103,3.5112),
+  earlyplio=c(0.3464,1.8163,3.7562),
+  lateoligo=c(0.0279,0.6636,1.6459)
+)
 
-# a. How many preservation bins are there?
+# Let's extract means from that
 
-length(grep("q_",colnames(guo_echi))) #1
-
-##############################
-
-## 3. Guo - Brachiopoda
-
-guo_brachi <- read.table(file=here(
-  "data",
-  "pyrate",
-  "output",
-  "other_work",
-  "guo_Brachiopoda_mcmcdiv.log"), 
-  sep="\t", header=T)
-
-# a. How many preservation bins are there?
-
-length(grep("q_",colnames(guo_echi))) #1
+bravo_q <- c(
+  mean(bravo$avg),
+  mean(bravo$earlymio),
+  mean(bravo$latemio),
+  mean(bravo$earlyplio),
+  mean(bravo$lateoligo)
+)
 
 ##############################
 
-# X. Let's plot everyone together for the img:
+# 4. Guinot 2023 - Elasmobranchii
+
+#sharks
+
+guinot1 <- data.frame(
+  premaas = c(0.3306,0.2485,0.4229),
+  maas = c(0.7188,0.4833,0.9822),
+  palaeo = c(0.3121,0.1819, 0.4528)
+)
+
+guinot1_q <- c(
+  mean(guinot1$premaas),
+  mean(guinot1$maas),
+  mean(guinot1$palaeo)
+)
+
+#skates and rays
+
+guinot2 <- data.frame(
+  premaas = c(0.3134,0.1906,0.4487),
+  maas = c(0.9217,0.6291,1.2652),
+  palaeo = c(0.1453,0.5731,0.3334)
+)
+
+guinot2_q <- c(
+  mean(guinot2$premaas),
+  mean(guinot2$maas),
+  mean(guinot2$palaeo)
+)
+
+##############################
+
+# 5. Jouault 2024 - crown ants
+
+jouault2024_crown <- read.table(file=here(
+  "data","pyrate",
+  "other_work","jouault2024",
+  "crownants_1_RJMCMC-26_Grj_mcmc.log"
+), header=T
+)
+
+# a. How many preservation bins are there?
+
+length(grep("q_",colnames(jouault2024_crown))) #30
+
+# b. Distribution of mean preservation rates
+
+jc2024_q <- c(
+  mean(jouault2024_crown$q_0),
+  mean(jouault2024_crown$q_1),
+  mean(jouault2024_crown$q_2),
+  mean(jouault2024_crown$q_3),
+  mean(jouault2024_crown$q_4),
+  mean(jouault2024_crown$q_5),
+  mean(jouault2024_crown$q_6),
+  mean(jouault2024_crown$q_7),
+  mean(jouault2024_crown$q_8),
+  mean(jouault2024_crown$q_9),
+  mean(jouault2024_crown$q_10),
+  mean(jouault2024_crown$q_11),
+  mean(jouault2024_crown$q_12),
+  mean(jouault2024_crown$q_13),
+  mean(jouault2024_crown$q_14),
+  mean(jouault2024_crown$q_15),
+  mean(jouault2024_crown$q_16),
+  mean(jouault2024_crown$q_17),
+  mean(jouault2024_crown$q_18),
+  mean(jouault2024_crown$q_19),
+  mean(jouault2024_crown$q_20),
+  mean(jouault2024_crown$q_21),
+  mean(jouault2024_crown$q_22),
+  mean(jouault2024_crown$q_23),
+  mean(jouault2024_crown$q_24),
+  mean(jouault2024_crown$q_25),
+  mean(jouault2024_crown$q_26),
+  mean(jouault2024_crown$q_27),
+  mean(jouault2024_crown$q_28),
+  mean(jouault2024_crown$q_29)
+)
+
+# c. The outliers are making it hard to visualize, so we'll remove them.
+
+jc2024_q <- jc2024_q[!jc2024_q %in% boxplot.stats(jc2024_q)$out]
+
+##############################
+
+# 5. Jouault 2024 - stem ants
+
+jouault2024_stem <- read.table(file=here(
+  "data","pyrate",
+  "other_work","jouault2024",
+  "stemants_1_RJMCMC-27_Grj_mcmc.log"
+), header=T
+)
+
+# a. How many preservation bins are there?
+
+length(grep("q_",colnames(jouault2024_stem))) #6
+
+# b. Distribution of mean preservation rates
+
+js2024_q <- c(
+  mean(jouault2024_stem$q_0),
+  mean(jouault2024_stem$q_1),
+  mean(jouault2024_stem$q_2),
+  mean(jouault2024_stem$q_3),
+  mean(jouault2024_stem$q_4),
+  mean(jouault2024_stem$q_5)
+)
+
+
+
+##############################
+
+# 6. Let's plot everyone together for the img:
 
 library("RColorBrewer")
 library("scales")
+library("rlist")
 
-a <- brewer.pal(7, "Set2")
+a <- brewer.pal(8, "Set2")
 
-works <- c("Actinopterygii (Sutherland 2025)",
-           "Amphicyonidae_EA (this work)",
-           "Amphicyonidae_NAm (this work)",
-           "Canidae_EA (this work)",
-           "Canidae_NAm (this work)",
-           "Felidae_EA (this work)",
-           "Felidae_NAm (this work)",
-           "Herpestidae_EU (this work)",
-           "Viverridae_EU (this work)")
+b <- list.reverse(seq(1:25))
 
-png(filename=here("text","images","boxplot_introduction.png"), 
-    width=640, height=480, units="px")
+png(filename=here("output","images","boxplot_introduction.png"), 
+    width=700, height=900, units="px")
+
+par(mar=c(5,5,3,3))
 
 boxplot(sutherland_q,
         jouault_q,
+        bravo_q,
+        guinot1_q,
+        guinot2_q,
+        jc2024_q,
+        js2024_q,
         amph_eu$mean_q,
         amph_na$mean_q,
         cani_eu$mean_q,
@@ -272,87 +488,28 @@ boxplot(sutherland_q,
         feli_ea$mean_q,
         feli_na$mean_q,
         herp_eu$mean_q,
+        hyae_eu$mean_q,
+        meph_na$mean_q,
+        must_eu$mean_q,
+        must_na$mean_q,
+        nimr_eu$mean_q,
+        nimr_na$mean_q,
+        perc_eu$mean_q,
+        proc_na$mean_q,
+        ursi_eu$mean_q,
+        ursi_na$mean_q,
         vive_ea$mean_q,
         main="Preservation rates",
-        xaxt="n", xlab="Organisms", 
-        ylab="Preservation rate (lineage/Myr)",
-        col=c(a[1], a[2], rep(a[3], 8))
-        )
-axis(side=1, at=1:12, labels=seq(1:12))
-text(5.5,8,labels="PLACEHOLDER", col=alpha("red", 0.5), cex=5)
+        yaxt="n", ylab="Organisms", 
+        xlab="Preservation rate (lineage/Myr)",
+        col=c(a[1], a[2], a[4], rep(a[5],2), rep(a[6],2), rep(a[3], 18)),
+        horizontal=T,
+        cex.main=2,
+        cex.axis=1.5,
+        cex.lab=1.5
+)
+axis(side=2, at=1:25, labels=b, las=1, cex.axis=1.5)
+#text(5.5,8,labels="PLACEHOLDER", col=alpha("red", 0.5), cex=5)
 
 dev.off()
-
-
-
-
-
-
-##############################
-# Let's find out which bin has the highest preservation in each work
-
-# 1. Sutherland
-
-## a. How many preservation bins are there?
-
-length(grep("q_",colnames(sutherland2025))) #12
-
-## b. Now to visualize them:
-
-boxplot(sutherland2025$q_0, sutherland2025$q_1, sutherland2025$q_2, 
-        sutherland2025$q_3, sutherland2025$q_4, sutherland2025$q_5, 
-        sutherland2025$q_6, sutherland2025$q_7, sutherland2025$q_8, 
-        sutherland2025$q_9, sutherland2025$q_10, sutherland2025$q_11, 
-        main="Sutherland 2025 preservation rates", xaxt="n", 
-        xlab="Bins", ylab="Preservation")
-axis(side=1, at=1:12, 
-     labels=c(
-       "q_0", "q_1", "q_2", "q_3", "q_4", "q_5", "q_6", "q_7", "q_8",
-       "q_9", "q_10", "q_11")
-     )
-# Clearly the highest preservation rate is in q_6, and the worst is q_8
-
-
-#########
-
-# 2. Mine
-
-## a. How many preservation bins are there?
-
-length(grep("q_", colnames(mine))) #5
-
-## b. Now to visualize them:
-
-boxplot(mine$q_0, mine$q_1, mine$q_2, mine$q_3, mine$q_4,
-        main="My preservation rates", xaxt="n", xlab="Bins",
-        ylab="Preservation")
-axis(side=1, at=1:5, labels=c("q_0","q_1","q_2","q_3","q_4"))
-#The highest one is q_4, and the worst is q_3
-
-
-
-############
-
-# X. Let's plot everyone together for the img:
-
-library("RColorBrewer")
-
-a <- brewer.pal(7, "Set2")
-
-works <- c(
-  "Actinopterygii (Sutherland 2025)",
-  "Amphicyonidae_EA (this work)",
-  "Amphicyonidae_NAm (this work)",
-  "Canidae_EA (this work)",
-  "Canidae_NAm (this work)",
-  "Felidae_EA (this work)",
-  "Felidae_NAm (this work)",
-  "Herpestidae_EU (this work)",
-  "Viverridae_EU (this work)"
-  )
-
-boxplot(sutherland2025$q_8, sutherland2025$q_6, mine$q_3, mine$q_4, main="Preservation rates",
-        xaxt="n", xlab="Organisms", ylab="Preservation rate (lineage/Myr)",
-        col=c(a[1], a[1], a[4], a[4]))
-axis(side=1, at=1:4, labels=works)
 

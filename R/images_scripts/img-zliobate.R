@@ -5,7 +5,7 @@ a <- rnorm(1000000, 50, 20)
 a <- a[-which(a <= -13)]
 a <- a[-which(a >=113)]
 
-#png(filename=here("text", "images","zliobate.png"), width=500, height=300)
+png(filename=here("output", "images","zliobate.png"), width=500, height=300)
 
 plot(density(a),
   xaxt="none",
@@ -28,9 +28,5 @@ points(x=115, y=0, pch=19, col="pink3", cex=2)
 text(x=115, y=0.002, pch=19, col="pink3", labels="Extinction")
 
 dev.off()
-
-min(a)
-max(a)
-density(a)
 
 

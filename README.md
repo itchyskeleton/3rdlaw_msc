@@ -13,6 +13,7 @@ Speciation (or origination) and extinction rates are the ultimate descriptors of
     |---pyrate/
         |---mcmc_logs/
         |---pyrate_RTT_plots/
+        |---other_work/
     |---processed/
 |---R/
     |---eta/
@@ -75,6 +76,10 @@ Data obtained through PyRate analyses.
 
 R scripts to generate the speciation, extinction and diversification rates, speciation and extinction shifts, and longevity through time plots, created using PyRate function `-plotRJ` and the MCMC logs.
 
+<h5>other_work</h5>
+
+MCMC logs obtained from literature to compose 
+
 <h4>processed</h4>
 
 - **00_eta_prerequisites.RData:** R objects needed to run the function `eta`.
@@ -82,6 +87,7 @@ R scripts to generate the speciation, extinction and diversification rates, spec
 - **corrs_prereqs_CUT_2t.RData:** R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the two thresholds method. The different cuts are described in the file names.
 - **gillinsky_data.csv:** data obtained from Gillinsky (1994) and used to create Fig. 1 from the dissertation text.
 - **mean_rates.RData:** mean speciation and extinction rates, obtained through function `eta.means`.
+- **img-intro.RData:** R objects needed to generate Fig. 2 of the manuscript.
 
 
 <h3>R</h3>
@@ -104,14 +110,13 @@ Scripts for the Kendall correlations between speciation and extinction rates.
 Scripts to generate images contained in the dissertation text.
 
 - **gillinsky-img.R:** R script to generate Fig. 1 of the manuscript.
-- **eta_explanation.R:** R script to generate Fig. 2 of the manuscript.
-- **example_diversification.R:** artificial diversification dynamic, created by modifying the real Eurasian Amphicyonidae one, to better exemplify the effect that the parameters of the function `eta` can have in the analysis.
+- **intro-img.R:** R script to generate Fig. 2 of the manuscript.
 - **img-zliobate.R:** R script to generate Fig. 4 of the manuscript.
-- **img-eta_explanation.R:** R script to generate Fig. 5 of the manuscript.
+- **eta_explanation.R:** R script to generate Fig. 5 of the manuscript.
+- **example_diversification.R:** artificial diversification dynamic, created by modifying the real Eurasian Amphicyonidae one, to better exemplify the effect that the parameters of the function `eta` can have in the analysis.
 - **results_correlations_bycut.R:** R script to generate Figs. 6, 7, S15, S16, S17, S18, and S19 of the manuscript.
 - **tpp_plots.R:** R script to generate TPP visualization plots for each family-continent pair (Figs. S1 and S2).
 - **functions.RData:** functions necessary to generate TPP plots.
-- **eta_results.R:** R script to generate Figs. S3-S14 of the manuscript.
 
 <h4>occs_data_prep</h4>
 Necessary files to prepare occurrences for PyRate analyses.
