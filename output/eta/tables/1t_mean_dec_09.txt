@@ -1,0 +1,5 @@
+"speciation"	"extinction"	"locality"	"status"
+"amph_na"	0.271997169539335	0.310692572527593	"NAm"	"extinct"
+"feli_eu"	0.294900127605519	0.363190608589207	"EU"	"extant"
+"feli_na"	0.285969599265388	0.502197712427603	"NAm"	"extant"
+"herp_eu"	0.145429374434528	0.27821711942525	"EU"	"extant"

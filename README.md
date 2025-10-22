@@ -30,13 +30,17 @@ Speciation (or origination) and extinction rates are the ultimate descriptors of
 ```
 
 <h3>data</h3>
+
 Raw and processed data used to perform analyses in this study.
 
 <h4>occs</h4>
+
 Occurrences used to run PyRate analyses. Each subfolder corresponds to one family-continent pair (see full list in the table below), and each one contains the following files:
-- PAIR_NAME_data_final_now_&_pbdb.txt: full list of occurrences for a given family-continent pair, containing species name, status, last fossil occurrence (MinT), and first fossil occurrence (MaxT).
-- PAIR_NAME.png: visual representation of occurrences per Myr (TPP visualization plots), highlighting the ones that cross through time intervals.
-- epochs.txt: time intervals for PyRate preservation shifts in Myr, when applicable.
+
+- **PAIR_NAME_data_final_now_&_pbdb.txt:** full list of occurrences for a given family-continent pair, containing species name, status, last fossil occurrence (MinT), and first fossil occurrence (MaxT).
+- **PAIR_NAME.png:** visual representation of occurrences per Myr (TPP visualization plots), highlighting the ones that cross through time intervals.
+- **epochs.txt:** time intervals for PyRate preservation shifts in Myr, when applicable.
+
 
 |**Pair code**|**Family**|**Location**|
 |-------------|:--------:|:----------:|
@@ -60,21 +64,24 @@ Occurrences used to run PyRate analyses. Each subfolder corresponds to one famil
 |vive_eu|Viverridae|Eurasia|
 
 <h4>pyrate</h4>
+
 Data obtained through PyRate analyses.
 
 <h5>mcmc_logs</h5>
+
 .txt files containing tables with the logs for the MCMC analyses performed by PyRate.
 
 <h5>pyrate_RTT_plots</h5>
+
 R scripts to generate the speciation, extinction and diversification rates, speciation and extinction shifts, and longevity through time plots, created using PyRate function `-plotRJ` and the MCMC logs.
 
 <h4>processed</h4>
 
 - **00_eta_prerequisites.RData:** R objects needed to run the function `eta`.
-- corrs_prereqs_CUT_1t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the one threshold method. The different cuts are described in the file names.
-- corrs_prereqs_CUT_2t.RData: R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the two thresholds method. The different cuts are described in the file names.
-- gillinsky_data.csv: data obtained from Gillinsky (1994) and used to create Fig. 1 from the dissertation text.
-- mean_rates.RData: mean speciation and extinction rates, obtained through function `eta.means`.
+- **corrs_prereqs_CUT_1t.RData:** R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the one threshold method. The different cuts are described in the file names.
+- **corrs_prereqs_CUT_2t.RData:** R objects necessary to run the correlations between speciation and extinction rates, using data divided in time windows using the two thresholds method. The different cuts are described in the file names.
+- **gillinsky_data.csv:** data obtained from Gillinsky (1994) and used to create Fig. 1 from the dissertation text.
+- **mean_rates.RData:** mean speciation and extinction rates, obtained through function `eta.means`.
 
 
 <h3>R</h3>
@@ -82,63 +89,69 @@ R scripts to generate the speciation, extinction and diversification rates, spec
 <h4>eta</h4>
 Scripts used to generate `eta` analyses for all family-continent pairs, using the one threshold or two thresholds methods and different `cuts` (see dissertation text for more information).
 
-- 00_eta_function.R: function `eta`, used to divide the family-continent pairs' diversification dynamics into time windows.
-- 01_eta_analysis_CUT_2t.R: `eta` analyses performed using the two thresholds method and different cuts, informed in the file names.
-- 02_eta_analysis_CUT_1t.R: `eta` analyses performed using the one threshold method and different cuts, informed in the file names.
+- **00_eta_function.R:** function `eta`, used to divide the family-continent pairs' diversification dynamics into time windows.
+- **01_eta_analysis_CUT_2t.R:** `eta` analyses performed using the two thresholds method and different cuts, informed in the file names.
+- **02_eta_analysis_CUT_1t.R:** `eta` analyses performed using the one threshold method and different cuts, informed in the file names.
 
 <h4>correlations</h4>
 Scripts for the Kendall correlations between speciation and extinction rates.
 
-- 01_correlations_CUT_2t.R: correlation analyses ran with data divided in time windows using the `eta` function with the two thresholds method and different cuts, informed in the file names.
-- 02_correlations_CUT_1t.R: correlation analyses ran with data divided in time windows using the `eta` function with the one threshold method and different cuts, informed in the file names.
-- 03_correlations_nowindows.R: correlations without dividing the diversification dynamics in time windows.
+- **01_correlations_CUT_2t.R:** correlation analyses ran with data divided in time windows using the `eta` function with the two thresholds method and different cuts, informed in the file names.
+- **02_correlations_CUT_1t.R:** correlation analyses ran with data divided in time windows using the `eta` function with the one threshold method and different cuts, informed in the file names.
+- **03_correlations_nowindows.R:** correlations without dividing the diversification dynamics in time windows.
 
 <h4>images_scripts</h4>
 Scripts to generate images contained in the dissertation text.
 
 - **gillinsky-img.R:** R script to generate Fig. 1 of the manuscript.
-- eta_explanation.R: R script to generate Fig. 2 of the manuscript.
-- example_diversification.R artificial diversification dynamic, created by modifying the real Eurasian Amphicyonidae one, to better exemplify the effect that the parameters of the function `eta` can have in the analysis.
-- img-zliobate.R R script to generate Fig. 4 of the manuscript.
-- img-eta_explanation.R R script to generate Fig. 5 of the manuscript.
-- results_correlations_bycut.R R script to generate Figs. 6, 7, S15, S16, S17, S18, and S19 of the manuscript.
-- tpp_plots.R: R script to generate TPP visualization plots for each family-continent pair (Figs. S1 and S2).
-- functions.RData: functions necessary to generate TPP plots.
-- eta_results.R R script to generate Figs. S3-S14 of the manuscript.
+- **eta_explanation.R:** R script to generate Fig. 2 of the manuscript.
+- **example_diversification.R:** artificial diversification dynamic, created by modifying the real Eurasian Amphicyonidae one, to better exemplify the effect that the parameters of the function `eta` can have in the analysis.
+- **img-zliobate.R:** R script to generate Fig. 4 of the manuscript.
+- **img-eta_explanation.R:** R script to generate Fig. 5 of the manuscript.
+- **results_correlations_bycut.R:** R script to generate Figs. 6, 7, S15, S16, S17, S18, and S19 of the manuscript.
+- **tpp_plots.R:** R script to generate TPP visualization plots for each family-continent pair (Figs. S1 and S2).
+- **functions.RData:** functions necessary to generate TPP plots.
+- **eta_results.R:** R script to generate Figs. S3-S14 of the manuscript.
 
 <h4>occs_data_prep</h4>
 Necessary files to prepare occurrences for PyRate analyses.
 
-- data_prep_tutorial.R: model script to prepare occurrences for PyRate analyses. This is annexed in the text for this dissertation.
-- needed_functions.RData: R functions necessary to properly run the data prep script.
-- now_for_analysis.txt: full database obtained from NOW, which is prepared through the data prep script, following the step by step detailed in the dissertation Appendix 2.
-- pbdb_for_analysis.txt: full database obtained from PBDB, which is prepared through the data prep script, following the step by step detailed in the dissertation Appendix 2.
+- **data_prep_tutorial.R:** model script to prepare occurrences for PyRate analyses. This is annexed in the text for this dissertation.
+- **needed_functions.RData:** R functions necessary to properly run the data prep script.
+- **now_for_analysis.txt:** full database obtained from NOW, which is prepared through the data prep script, following the step by step detailed in the dissertation Appendix 2.
+- **pbdb_for_analysis.txt:** full database obtained from PBDB, which is prepared through the data prep script, following the step by step detailed in the dissertation Appendix 2.
 
 <h3>output</h3>
 
 <h4>images</h4>
+
 Outputs of the sub-folder *images_scripts* in folder *R*.
 
 <h4>eta</h4>
+
 Outputs of the function `eta`.
 
 <h5>images</h5>
+
 PDF files showing the diversification dynamics divided in time windows. The files are organized by threshold method, and file names follow the standard `PAIR_CUT_THRESHOLDS`. Pair names follow the table presented in section *data*.
 
 <h5>tables</h5>
 Contains two types of files:
 
--Tables containing mean speciation and extinction rates, locality, and status for each family-continent pair for all time windows (`rise` for expansion, `eq` for equilibrium, and `dec` for decline). Those files are named as `THRESHOLD_mean_WINDOW_CUT.txt`.
--Tables containing threshold rates estimated through function `eta` for each family-continent pair. Those files are named as `THRESHOLD_threshold_rates_CUT.txt`.
+- Tables containing mean speciation and extinction rates, locality, and status for each family-continent pair for all time windows (`rise` for expansion, `eq` for equilibrium, and `dec` for decline). Those files are named as `THRESHOLD_mean_WINDOW_CUT.txt`.
+- Tables containing threshold rates estimated through function `eta` for each family-continent pair. Those files are named as `THRESHOLD_threshold_rates_CUT.txt`.
 
 
 <h4>correlations</h4>
+
 Outputs of the correlation analyses.
 
 <h5>data</h5>
+
 RData files containing the results of Kendall correlations between speciation and extinction rates divided by status (`dead` or `alive`), continent (`eu` or `nam`), and not segregated (`neutral`), for all time windows. The file names indicate cut and threshold method. 
 
 <h5>images</h5>
+
 PDF files showing the individual plots for the correlations between speciation and extinction rates, organized in folders named by cut and threshold method. Inside each folder, the file names indicate whether the correlation was performed by status, continent, or without segregation, and for expansion, equilibrium or decline (for example, file `neutral_equilibrium.pdf` in folder cut01_1t shows the correlation for the equilibrium window, without any segregation within the data, with parameters cut = 0.1 and one threshold method in the function `eta`).
 
 <h2>Authors</h2>
