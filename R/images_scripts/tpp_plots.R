@@ -4,7 +4,7 @@
 
 library(here)
 
-load(here("data", "occs", "functions.RData"))
+load(here("R", "images_scripts", "functions.RData"))
 
 ##### Amphicyonidae_EU ####
 
