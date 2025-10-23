@@ -5,38 +5,27 @@ source(here("R","eta","00_eta_function.R"))
 #############
 # cut = 0.1, two = T
 
-pdf(here("output","images","eta_example_01T.pdf"), width=8.3, height=5.8)
+eta(here("R","images_scripts","example_diversification.r"), cut=0.1, two=T,
+    savePlot=T, path=here("output", "images", "eta_example_012t.pdf"))
 
-eta(here("R","images_scripts","example_diversification.r"), cut=0.1, two=T)
-
-dev.off()
 
 #############
 # cut = 0.9, two = T
 
-pdf(here("output","images","eta_example_09T.pdf"), width=8.3, height=5.8)
-
-eta(here("R","images_scripts","example_diversification.r"), cut=0.9, two=T)
-
-dev.off()
+eta(here("R","images_scripts","example_diversification.r"), cut=0.9, two=T,
+    savePlot=T, path=here("output", "images", "eta_example_092t.pdf"))
 
 #############
 # cut = 0.1, two = F
 
-pdf(here("output","images","eta_example_01F.pdf"), width=8.3, height=5.8)
-
-eta(here("R","images_scripts","example_diversification.r"), cut=0.1, two=F)
-
-dev.off()
+eta(here("R","images_scripts","example_diversification.r"), cut=0.1, two=F,
+    savePlot=T, path=here("output", "images", "eta_example_011t.pdf"))
 
 #############
 # cut = 0.9, two = F
 
-pdf(here("output","images","eta_example_09F.pdf"), width=8.3, height=5.8)
-
-eta(here("R","images_scripts","example_diversification.r"), cut=0.9, two=F)
-
-dev.off()
+eta(here("R","images_scripts","example_diversification.r"), cut=0.9, two=F,
+    savePlot=T, path=here("output", "images", "eta_example_091t.pdf"))
 
 
 ############
