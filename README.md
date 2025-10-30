@@ -1,5 +1,5 @@
 <h2>General overview</h2>
-This repository contains data and code generated through and used in the analyses for the dissertation titled <b><i>Investigating biological, paleontological and statistical aspects of the third paleobiological law.</i></b>
+This repository contains data and code generated through and used in the analyses for the dissertation titled <b><i>Another brick in the law: evaluating the biological and statistical aspects of the third law of paleobiology.</i></b>
 
 <h2>Context</h2>
 
